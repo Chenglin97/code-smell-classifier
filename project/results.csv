@@ -1,0 +1,13 @@
+smell_type,accuracy,f1,accuracy_training,f1_training,training_time,classifier
+God Class,78%,80%,89%,89%,3 seconds,Random Forest
+Data Class,84%,85%,89%,89%,3 seconds,Random Forest
+Feature Envy,78%,80%,90%,90%,3 seconds,Random Forest
+Long Method,76%,79%,88%,88%,3 seconds,Random Forest
+God Class,80%,82%,90%,90%,4 seconds,Neural Network
+Data Class,83%,85%,90%,90%,4 seconds,Neural Network
+Feature Envy,75%,77%,91%,91%,7 seconds,Neural Network
+Long Method,69%,69%,90%,90%,6 seconds,Neural Network
+God Class,71%,70%,91%,91%,9 seconds,SVC(Linear)
+Data Class,83%,84%,89%,89%,9 seconds,SVC(Linear)
+Feature Envy,78%,80%,90%,90%,10 seconds,SVC(Linear)
+Long Method,77%,80%,85%,85%,10 seconds,SVC(Linear)
