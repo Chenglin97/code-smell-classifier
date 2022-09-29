@@ -1,5 +1,5 @@
 import argparse
-from models import Classifier, DataLoader, ClassifierGui
+from modules import Classifier, DataLoader, ClassifierGui
 import tkinter as tk
 from tkinter import *
 import pandas as pd
