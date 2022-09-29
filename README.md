@@ -12,6 +12,7 @@ Then enter the virtual environment
 ```bash
 source env/bin/activate
 ```
+(On windows: use `.\env\Scripts\activate` instead)
 
 Next, install the required libraries
 
