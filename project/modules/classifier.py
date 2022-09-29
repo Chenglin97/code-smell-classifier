@@ -59,7 +59,7 @@ class Classifier:
         grid_search = GridSearchCV(
             clf,
             param_grid = param_grid,
-            scoring = 'f1',
+            scoring = 'accuracy',
             return_train_score = True,
             cv = 5,
             verbose=10
