@@ -3,7 +3,6 @@ from scipy.io import arff
 from sklearn import preprocessing
 from sklearn.impute import SimpleImputer
 
-
 class DataLoader:
     def __init__(self, smell_type='dc'):
         self.smell_type = smell_type
@@ -41,9 +40,21 @@ class DataLoader:
         
         X_scaled = self.preprocess_x(new_X)
 
+        self.viewFeatureDistribution(X_scaled)
+
         return X_scaled, y
 
     def preprocess_x(self, X):
         scaler = preprocessing.MinMaxScaler().fit(X)
         X_scaled = scaler.fit_transform(X)
         return X_scaled
+
+    def viewFeatureDistribution(self, X):
+        import matplotlib.pyplot as plt
+        df = pd.DataFrame(X)
+        del df[0]
+        df.to_csv('features.csv', index=False)
+        fig, axis = plt.subplots(9, 9, figsize=(10,10))
+        axes = df.hist(ax=axis, bins=20, xlabelsize=1, ylabelsize=1)
+        plt.tight_layout()
+        plt.show()
