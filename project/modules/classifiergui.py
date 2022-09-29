@@ -3,6 +3,7 @@ from tkinter import *
 import pandas as pd
 from .classifier import Classifier
 from .dataloader import DataLoader
+from scipy.io import arff
 
 class ClassifierGui:
     def __init__(self):
@@ -25,7 +26,12 @@ class ClassifierGui:
             'mlp': 'Neural Network',
             'svm': 'SVC(Linear)'
         }
-    
+        self.smell_type_to_file_names = {
+            'gc': 'god-class',
+            'dc': 'data-class',
+            'fe': 'feature-envy',
+            'lm': 'long-method'
+        }
 
     def initView(self):
         self.window = tk.Tk()
@@ -98,6 +104,12 @@ class ClassifierGui:
         results = []
         for smell in self.smell_types:
             # import dataset 
+            try:
+                data = arff.loadarff('datasets/'+ self.smell_type_to_file_names[smell] +'.arff')
+            except FileNotFoundError:
+                self.deleteTrainingMessage()
+                self.displayErrorMessage(f"Dataset for {self.smell_type_to_names[smell]} is not found")
+                return
             data_loader = DataLoader(smell)
             data = data_loader.load_data()
             X, y = data_loader.process_data(data)
