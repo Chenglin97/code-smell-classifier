@@ -22,7 +22,7 @@ class Classifier:
         ''' Use oversampling to balance labels for training set '''
         for i, y in enumerate(y_train):
             if y == 1:
-                for _ in range(3):
+                for _ in range(4):
                     newRow = X_train[i]
                     X_train = np.vstack((X_train, newRow))
                     y_train = np.append(y_train, y_train[i])

@@ -54,7 +54,6 @@ class DataLoader:
         import matplotlib.pyplot as plt
         df = pd.DataFrame(X)
         del df[0]
-        df.to_csv('features.csv', index=False)
         fig, axis = plt.subplots(9, 9, figsize=(10,10))
         axes = df.hist(ax=axis, bins=20, xlabelsize=1, ylabelsize=1)
         plt.tight_layout()
