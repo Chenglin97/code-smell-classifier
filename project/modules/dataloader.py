@@ -40,7 +40,8 @@ class DataLoader:
         
         X_scaled = self.preprocess_x(new_X)
 
-        self.viewFeatureDistribution(X_scaled)
+        # Uncomment the below line to view feature distribution plots
+        # self.viewFeatureDistribution(X_scaled)
 
         return X_scaled, y
 
